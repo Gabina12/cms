@@ -24,4 +24,8 @@ export class CategoryService {
     return this.http.post('/api/Categories', category).map(res => res.json());
   }
 
+  deleteCategory(id: number){
+    return this.http.delete('/api/Categories/' + id).map(res => res.json());
+  }
+
 }

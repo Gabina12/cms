@@ -28,4 +28,8 @@ export class PagesService {
     return this.http.post('/api/Pages', page).map(res => res.json());
   }
 
+  deletePage(id: number){
+    return this.http.delete('/api/Pages/' + id).map(res => res.json());
+  }
+
 }
