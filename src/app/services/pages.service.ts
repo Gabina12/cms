@@ -9,7 +9,8 @@ export class PagesService {
   constructor(public http: Http) { }
 
   getPages() {
-    return this.http.get('/api/Pages').map(res => res.json());
+    let lang = localStorage.getItem('lang');
+    return this.http.get('/api/Pages?lang=' + lang).map(res => res.json());
   }
 
   getPageById(id: number) {
@@ -21,10 +22,14 @@ export class PagesService {
   }
 
   putPage(page: Page) {
+    let lang = localStorage.getItem('lang');
+    page.Lang = lang;
     return this.http.put('/api/Pages/' + page.Id, page).map(res => res.json());
   }
 
   postPage(page: Page) {
+    let lang = localStorage.getItem('lang');
+    page.Lang = lang;
     return this.http.post('/api/Pages', page).map(res => res.json());
   }
 

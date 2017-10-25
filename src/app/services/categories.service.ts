@@ -9,7 +9,8 @@ export class CategoryService {
   constructor(public http: Http) { }
 
   getCategories() {
-    return this.http.get('/api/Categories').map(res => res.json());
+    let lang = localStorage.getItem('lang');
+    return this.http.get('/api/Categories?lang=' + lang).map(res => res.json());
   }
 
   getCategoryById(id: number) {
@@ -17,10 +18,14 @@ export class CategoryService {
   }
 
   putCategory(category: Category) {
+    let lang = localStorage.getItem('lang');
+    category.Lang = lang;
     return this.http.put('/api/Categories/' + category.Id, category).map(res => res.json());
   }
 
   postCategory(category: Category) {
+    let lang = localStorage.getItem('lang');
+    category.Lang = lang;
     return this.http.post('/api/Categories', category).map(res => res.json());
   }
 

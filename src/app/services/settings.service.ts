@@ -19,10 +19,14 @@ export class SettingsService {
   }
 
   put(s: Setting) {
+    let lang = localStorage.getItem('lang');
+    s.Lang = lang;
     return this.http.put('/api/Settings/' + s.SettingId, s).map(res => res.json());
   }
 
   post(s: Cars) {
+    let lang = localStorage.getItem('lang');
+    s.Lang = lang;
     return this.http.post('/api/Settings', s).map(res => res.json());
   }
 
