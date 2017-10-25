@@ -26,7 +26,11 @@ import { CarsCreateComponent } from './components/cars/cars-create/cars-create.c
 import { CarsEditComponent } from './components/cars/cars-edit/cars-edit.component';
 import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
 import { CarsService } from './services/cars.service';
-
+import { SettingsMainComponent } from './components/settings/settings-main/settings-main.component';
+import { SettingsCreateComponent } from './components/settings/settings-create/settings-create.component';
+import { SettingsEditComponent } from './components/settings/settings-edit/settings-edit.component';
+import { SettingsService } from './services/settings.service';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -40,6 +44,10 @@ const appRoutes: Routes = [
   { path: 'cars', component: CarsMainComponent },
   { path: 'cars/edit/:id', component: CarsEditComponent },
   { path: 'cars/create', component: CarsCreateComponent },
+
+  { path: 'settings', component: SettingsMainComponent },
+  { path: 'settings/edit/:id', component: SettingsEditComponent },
+  { path: 'settings/create', component: SettingsCreateComponent },
 
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
@@ -60,7 +68,10 @@ const appRoutes: Routes = [
     CarsMainComponent,
     CarsCreateComponent,
     CarsEditComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SettingsMainComponent,
+    SettingsCreateComponent,
+    SettingsEditComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -74,6 +85,10 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }
     ),
+    LocalStorageModule.withConfig({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    }),
     FroalaEditorModule.forRoot(), 
     FroalaViewModule.forRoot(),
     BrowserAnimationsModule,
@@ -86,7 +101,8 @@ const appRoutes: Routes = [
   providers: [
     CategoryService, 
     PagesService,
-    CarsService
+    CarsService,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })

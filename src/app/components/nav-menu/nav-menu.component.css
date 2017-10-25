@@ -33,6 +33,18 @@ li.link-active a:focus {
     .navbar-header {
         float: none;
     }
+    .navbar-footer{        
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .navbar-footer .sep {
+        border-top: 1px solid #444;
+        padding: 5px;
+    }
     .navbar-collapse {
         border-top: 1px solid #444;
         padding: 0px;
@@ -57,3 +69,63 @@ li.link-active a:focus {
         text-overflow: ellipsis;
     }
 }
+
+
+.lang-switcher {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  .lang-switcher li {
+    display: inline-block;
+    float: left;
+  }
+  .lang-switcher li:last-child {
+    border-right: none;
+  }
+  .lang-switcher li a {
+    padding: 3px 5px;
+    color: #4189c7;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+    min-width: 40px;
+    text-align: center;
+  }
+  .lang-switcher li a:hover {
+    text-decoration: none;
+  }
+  .lang-switcher li a.is-active {
+    color: #000000;
+    cursor: default;
+  }
+  
+  /* modifiers */
+  .lang-switcher.lang-switcher--pill, .lang-switcher.lang-switcher--rounded-pill {
+    border: 1px solid #4189c7;
+  }
+  .lang-switcher.lang-switcher--pill a:hover, .lang-switcher.lang-switcher--rounded-pill a:hover {
+    background: #4189c7;
+    color: #ffffff;
+  }
+  .lang-switcher.lang-switcher--pill a.is-active, .lang-switcher.lang-switcher--rounded-pill a.is-active {
+    background-color: #4189c7;
+    color: #ffffff;
+  }
+  
+  .lang-switcher.lang-switcher--rounded-pill {
+    border-radius: 15px;
+  }
+  .lang-switcher.lang-switcher--rounded-pill li:first-child a {
+    padding-left: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .lang-switcher.lang-switcher--rounded-pill li:last-child a {
+    padding-right: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  

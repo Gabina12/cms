@@ -1,0 +1,66 @@
+<h1>
+    პარამეტრები
+  </h1>
+  
+  <!--
+  <div class="row">
+  
+    <div class="col-sm-12" style="padding:10px;">
+  
+      <div class="row" style="width:100%;">
+        <div class="col-md-12">
+          <div id="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" id="search" name="search" (keyup.enter)="Search(search.value)" class="form-control input-lg" placeholder="ძებნა"
+                #search/>
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button" (click)="Search(search.value)">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  -->
+  <hr/>
+  
+  <div *ngIf="!settings">
+      <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+  </div>
+  
+  <a *ngIf="settings" href="/settings/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი პარამეტრის დამატება</a>
+  
+  
+  <table class="table  table-striped" *ngIf="settings">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>კოდი</th>
+        <th>დასახელება</th>
+        <th>ენა</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of settings">
+        <th scope="row">{{s.SettingId}}</th>
+        <td>{{s.SettingCode}}</td>
+        <td>{{s.SettingValue}}</td>
+        <td>{{s.Lang}}</td>
+        <td align="right">
+          <a class="btn btn-primary btn-sm"  routerLink="/settings/edit/{{s.SettingId}}"><i class="glyphicon glyphicon-edit"></i> რედაქტირება</a>
+          <button class="btn btn-danger btn-sm" (click)="openDialog(s.SettingId)"><i class="glyphicon glyphicon-remove"></i> წაშლა</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
