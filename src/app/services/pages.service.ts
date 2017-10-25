@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Page } from '../models/Page';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class PagesService {
 
-  constructor(public http: Http) { }
+  constructor(public http: Http, private localStorageService: LocalStorageService) { }
 
   getPages() {
     let lang = localStorage.getItem('lang');
