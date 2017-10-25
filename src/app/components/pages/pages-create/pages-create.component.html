@@ -1,0 +1,43 @@
+<ol class="breadcrumb">
+    <li>
+      <a href="/pages">გვერდები</a>
+    </li>
+    <li class="active">ახალი გვერდის დამატება</li>
+  </ol>
+  
+  <h1>ახალი გვერდის დამატება</h1>
+  
+  <div class="row">
+    <div class="col-sm-12">
+  
+      <div class="form-container">
+  
+        <form [formGroup]="form" (ngSubmit)="createPost(form.value)">
+          <div class="row columns">
+            <div class="col-sm-6">
+              <input type="hidden" formControlName="Id">
+  
+              <label for="PageName" i18n>გვერდის სახელი (მაგ: #ABOUT): </label>
+              <input type="text" class="form-control" formControlName="PageName">
+  
+              <label for="Title">სათაური: </label>
+              <input type="text" class="form-control" formControlName="Title">
+  
+              <label for="DefaultUrl">მისამართი: </label>
+              <input type="text" class="form-control" formControlName="DefaultUrl">
+            </div>
+            <div class="col-sm-6"></div>
+  
+            <div class="col-sm-12">
+              <label for="Body">კონტენტი: </label>
+              <div [froalaEditor] formControlName="Body">გვერდი კონტენტი</div>
+            </div>
+  
+          </div>
+          <hr/>
+          <input type="submit" value="Submit" class="btn btn-primary">
+  
+        </form>
+      </div>
+    </div>
+  </div>

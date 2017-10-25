@@ -1,0 +1,53 @@
+<div class='main-nav'>
+  <div class='navbar navbar-inverse'>
+      <div class='navbar-header'>
+          <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+              <span class='sr-only'>Toggle navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' [routerLink]="['/home']">სამართავი პანელი <sup style="color:#4189C7;">bondx group</sup> </a>
+      </div>
+      <div class='clearfix'></div>
+      <div class='navbar-collapse collapse'>
+          <ul class='nav navbar-nav'>
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/home']">
+                      <span class='glyphicon glyphicon-home'></span> მთავარი
+                  </a>
+              </li>
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/about']">
+                      <span class='glyphicon glyphicon-education'></span> ჩვენს შესახებ
+                  </a>
+              </li>
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/posts']">
+                      <span class='glyphicon glyphicon-th-list'></span> სიახლეები
+                  </a>
+              </li>
+
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/file-manager']">
+                      <span class='glyphicon glyphicon-camera'></span> ფაილ მენეჯერი
+                  </a>
+              </li>
+
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/categories']">
+                      <span class='glyphicon glyphicon-menu-hamburger'></span> კატეგორიები
+                  </a>
+              </li>
+
+              <li [routerLinkActive]="['link-active']">
+                  <a [routerLink]="['/pages']">
+                      <span class='glyphicon glyphicon-list-alt'></span> გვერდები
+                  </a>
+              </li>
+
+
+          </ul>
+      </div>
+  </div>
+</div>

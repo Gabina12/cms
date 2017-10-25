@@ -1,0 +1,42 @@
+<ol class="breadcrumb">
+  <li>
+    <a href="/categories">კატეგორიები</a>
+  </li>
+  <li class="active">კატეგორიის რედაქტირება</li>
+</ol>
+
+<h1>კატეგორიის რედაქტირება</h1>
+
+<div class="row">
+<div class="col-sm-8">
+
+  <div class="form-container" *ngIf="category">
+
+    <form [formGroup]="form" (ngSubmit)="editPost(form.value)">
+      <div class="row columns">
+
+        <input type="hidden" formControlName="Id">
+
+        <label for="Descrip" i18n>დასახელება: </label>
+        <input type="text" class="form-control" formControlName="Descrip">
+
+        <label for="ParentId">მშობელი კატეგორია: </label>
+        <select formControlName="ParentId" class="form-control" style="min-height:35px;">
+            <option value="null">ამოირჩიეთ</option>
+            <option *ngFor="let c of categories" [ngValue]="c.Id">{{c.Descrip}}</option>
+        </select>
+
+        <label for="Url">მისამართი: </label>
+        <input type="text" class="form-control" formControlName="Url">
+
+        <label for="SortId">რიგითობა: </label>
+        <input type="number" class="form-control" formControlName="SortId">
+
+      </div>
+      <hr/>
+      <input type="submit" value="Submit" class="btn btn-primary">
+
+    </form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,45 @@
+<h1>
+  გვერდები
+</h1>
+
+<hr/>
+
+<div *ngIf="!pages">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+</div>
+
+<a *ngIf="pages" href="/pages/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი გვერდის დამატება</a>
+
+<table class="table  table-striped" *ngIf="pages">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>სათაური</th>
+      <th>დასახელება</th>
+      <th>ენა</th>
+      <th>მისამართი (Url)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let page of pages">
+      <th scope="row">{{page.Id}}</th>
+      <td>{{page.Title}}</td>
+      <td>{{page.PageName}}</td>
+      <td>{{page.Lang}}</td>
+      <td>{{page.DefaultUrl}}</td>
+      <td align="right">
+        <a class="btn btn-primary btn-sm"  routerLink="/pages/edit/{{page.Id}}"><i class="glyphicon glyphicon-edit"></i> რედაქტირება</a>
+        <button class="btn btn-danger btn-sm" (click)="openDialog(page.Id)"><i class="glyphicon glyphicon-remove"></i> წაშლა</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

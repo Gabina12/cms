@@ -1,0 +1,73 @@
+/* YOUR CUSTOM STYLES */
+
+@font-face {
+	font-family: 'bxHRegular';
+	src: url('/assets/font/main/BOG2017Headline-Regular.eot');
+	src: url('/assets/font/main/BOG2017Headline-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/assets/font/main/BOG2017Headline-Regular.woff') format('woff'),
+		url('/assets/font/main/BOG2017Headline-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'bxRegular';
+	src: url('/assets/font/main/BOG2017Body-Regular.eot');
+	src: url('/assets/font/main/BOG2017Body-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/assets/font/main/BOG2017Body-Regular.woff') format('woff'),
+		url('/assets/font/main/BOG2017Body-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'bxHBold';
+	src: url('/assets/font/main/BOG2017Headline-SemiBold.eot');
+	src: url('/assets/font/main/BOG2017Headline-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('/assets/font/main/BOG2017Headline-SemiBold.woff') format('woff'),
+		url('/assets/font/main/BOG2017Headline-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+body {
+	font-family: 'bxRegular' !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'bxHBold' !important;
+}
+
+label {
+	font-family: 'bxHRegular' !important;
+}
+
+.breadcrumb li {
+	font-family: 'bxHRegular' !important;
+}
+
+th {
+	font-family: 'bxHRegular' !important;
+}
+
+td {
+	font-family: 'bxRegular' !important;
+}
+
+input, select {
+	font-family: 'bxRegular' !important;
+}
+
+input[type="submit"], .navbar-brand, .btn {
+	font-family: 'bxHBold' !important;
+}
+
+.navbar-nav li a {
+	font-family: 'bxHRegular' !important;
+}
+
+
+.row {
+   margin-right: -7px !important; 
+   margin-left: -7px !important;
+}
