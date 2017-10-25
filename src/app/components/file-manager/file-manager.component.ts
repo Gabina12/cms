@@ -12,12 +12,4 @@ export class FileManagerComponent implements OnInit {
   ngOnInit() {
   }
 
-  public toggleMultiSelection() {
-    this.fileManagerConfiguration.isMultiSelection = !this.fileManagerConfiguration.isMultiSelection;
-
-    if (!this.fileManagerConfiguration.isMultiSelection) {
-      this.fileManagerDispatcher.unSelectAllFiles();
-    }
-  }
-
 }
