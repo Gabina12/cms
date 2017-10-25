@@ -37,8 +37,11 @@ const appRoutes: Routes = [
   { path: 'pages/edit/:id', component: PagesEditComponent },
   { path: 'pages/create', component: PagesCreateComponent },
   { path: 'file-manager', component: FileManagerComponent },
+  { path: 'cars', component: CarsMainComponent },
+  { path: 'cars/edit/:id', component: CarsEditComponent },
+  { path: 'cars/create', component: CarsCreateComponent },
 
-  { path: '**', component: ErrorComponent }
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
