@@ -20,12 +20,12 @@ import { PagesEditComponent } from './components/pages/pages-edit/pages-edit.com
 import { PagesCreateComponent } from './components/pages/pages-create/pages-create.component';
 import { CategoryService } from './services/categories.service';
 import { PagesService } from './services/pages.service';
-import { PagesDeleteComponent } from './components/pages/pages-delete/pages-delete.component';
-import { CategoriesDeleteComponent } from './components/categories/categories-delete/categories-delete.component';
 import { FileManagerComponent } from './components/file-manager/file-manager.component';
 import { CarsMainComponent } from './components/cars/cars-main/cars-main.component';
 import { CarsCreateComponent } from './components/cars/cars-create/cars-create.component';
 import { CarsEditComponent } from './components/cars/cars-edit/cars-edit.component';
+import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
+import { CarsService } from './services/cars.service';
 
 
 const appRoutes: Routes = [
@@ -56,16 +56,14 @@ const appRoutes: Routes = [
     PagesMainComponent,
     PagesEditComponent,
     PagesCreateComponent,
-    PagesDeleteComponent,
-    CategoriesDeleteComponent,
     FileManagerComponent,
     CarsMainComponent,
     CarsCreateComponent,
-    CarsEditComponent
+    CarsEditComponent,
+    ConfirmDialogComponent
   ],
   entryComponents: [
-    PagesDeleteComponent,
-    CategoriesDeleteComponent
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +85,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     CategoryService, 
-    PagesService
+    PagesService,
+    CarsService
   ],
   bootstrap: [AppComponent]
 })

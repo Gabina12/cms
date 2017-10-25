@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PagesService } from '../../../services/pages.service';
 import { MatDialog } from '@angular/material';
 import { Page } from '../../../models/Page';
-import { PagesDeleteComponent } from '../pages-delete/pages-delete.component';
+import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-pages-main',
@@ -23,7 +23,7 @@ export class PagesMainComponent implements OnInit {
     }
   
     openDialog(id: number, pageName: string) {
-      const dialogRef = this.dialog.open(PagesDeleteComponent, { data: { pageName: pageName, id: id } });
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'წაშლა', message: 'წაიშალოს ჩანაწერი?' } });
   
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);

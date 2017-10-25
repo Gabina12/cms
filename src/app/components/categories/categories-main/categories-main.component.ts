@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../services/categories.service';
 import { Category } from '../../../models/Category';
 import { MatDialog } from '@angular/material';
-import { CategoriesDeleteComponent } from '../categories-delete/categories-delete.component';
+import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-categories-main',
@@ -31,8 +31,8 @@ export class CategoriesMainComponent implements OnInit {
   }
 
   openDialog(id: number) {
-    const dialogRef = this.dialog.open(CategoriesDeleteComponent, { data: { id: id } });
-
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'წაშლა', message: 'წაიშალოს ჩანაწერი?' } });
+    
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       if(result === true){
