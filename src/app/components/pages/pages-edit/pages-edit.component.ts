@@ -30,14 +30,13 @@ export class PagesEditComponent implements OnInit {
           Title: new FormControl(this.page.Title, Validators.required),
           Body: new FormControl(this.page.Body, Validators.required),
           DefaultUrl: new FormControl(this.page.DefaultUrl, Validators.required),
-          PageName: new FormControl(this.page.PageName, Validators.required)
+          PageName: new FormControl(this.page.PageName, Validators.required),
+          Lang: new FormControl(localStorage.getItem('lang'), Validators.required)
         });
-
     });
   }
 
   editPost(page: Page){
-    page.Lang = 'ge';
     this.api.putPage(page).subscribe((result) => {
       this.page = result;
         this.nav.navigateByUrl('pages');

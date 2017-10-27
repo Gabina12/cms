@@ -48,4 +48,7 @@ export class CategoriesMainComponent implements OnInit {
     return this.categories.filter(x=>x.Id == Id)[0].Descrip;
   }
 
+  getParam(code: string){
+    return localStorage.getItem(code);
+  }
 }

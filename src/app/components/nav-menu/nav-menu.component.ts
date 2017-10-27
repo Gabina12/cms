@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
+import { SettingsService } from '../../services/settings.service';
+import { Setting } from '../../models/Settings';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,8 +10,10 @@ import { LocalStorageService } from 'angular-2-local-storage';
 })
 export class NavMenuComponent implements OnInit {
 
+  settings: Setting[];
   language: string;
-  constructor(private localStorageService: LocalStorageService) {
+  constructor(private localStorageService: LocalStorageService, 
+    private api: SettingsService) {
     
    }
 
@@ -20,6 +24,17 @@ export class NavMenuComponent implements OnInit {
     } else {
       this.language = localStorage.getItem('lang');
     }
+
+    if(localStorage.getItem('c_lang') !== localStorage.getItem('lang')){
+      this.api.get().subscribe((res) => {
+        this.settings = res;
+        localStorage.setItem('c_lang',this.language);
+        this.settings.forEach(element => {
+          localStorage.setItem(element.SettingCode,element.SettingValue);
+        });
+      })
+    }
+    
   }
 
   ChangeLang(lang: string) {
@@ -31,6 +46,10 @@ export class NavMenuComponent implements OnInit {
   isActive(lang: string){
     if(lang === localStorage.getItem('lang')) return 'is-active';
     return '';
+  }
+
+  getParam(code: string){
+    return localStorage.getItem(code);
   }
 
 }

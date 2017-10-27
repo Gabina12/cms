@@ -10,29 +10,24 @@ import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dia
   styleUrls: ['./pages-main.component.css']
 })
 export class PagesMainComponent implements OnInit {
-
   pages: Page[];
-  
-  
-    constructor(private api: PagesService, public dialog: MatDialog) { }
-  
-    ngOnInit() {
-      this.api.getPages().subscribe((res) => {
-        this.pages = res;
-      });
-    }
-  
-    openDialog(id: number, pageName: string) {
-      const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'წაშლა', message: 'წაიშალოს ჩანაწერი?' } });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-        if(result === true){
-           this.api.deletePage(id).subscribe((res) => {
-              this.pages = this.pages.filter(x => x.Id !== id);
-           });
-        }
-      });
-    }
+  constructor(private api: PagesService, public dialog: MatDialog) { }
+
+  ngOnInit() {
+    this.api.getPages().subscribe((res) => {
+      this.pages = res;
+    });
+  }
+
+  openDialog(id: number, pageName: string) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'წაშლა', message: 'წაიშალოს ჩანაწერი?' } });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.api.deletePage(id).subscribe((res) => {
+          this.pages = this.pages.filter(x => x.Id !== id);
+        });
+      }
+    });
+  }
 
 }

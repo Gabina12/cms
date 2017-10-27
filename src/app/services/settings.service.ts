@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Setting } from '../models/Settings';
-import { Cars } from '../models/Cars';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
@@ -24,7 +23,7 @@ export class SettingsService {
     return this.http.put('/api/Settings/' + s.SettingId, s).map(res => res.json());
   }
 
-  post(s: Cars) {
+  post(s: Setting) {
     let lang = localStorage.getItem('lang');
     s.Lang = lang;
     return this.http.post('/api/Settings', s).map(res => res.json());

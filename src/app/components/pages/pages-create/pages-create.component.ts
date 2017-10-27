@@ -24,13 +24,13 @@ export class PagesCreateComponent implements OnInit {
       Title: new FormControl('', Validators.required),
       Body: new FormControl(null, Validators.required),
       DefaultUrl: new FormControl('', Validators.required),
-      PageName: new FormControl(0, Validators.required)
+      PageName: new FormControl(0, Validators.required),
+      Lang: new FormControl(localStorage.getItem('lang'), Validators.required)
     });
 
   }
 
   createPost(page: Page) {
-    page.Lang = 'ge';
     this.api.postPage(page).subscribe((result) => {
       this.page = result;
         this.nav.navigateByUrl('pages');

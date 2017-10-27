@@ -16,41 +16,36 @@
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span> მთავარი
-                    </a>
-                </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/about']">
-                        <span class='glyphicon glyphicon-education'></span> ჩვენს შესახებ
+                        <span class='glyphicon glyphicon-home'></span>{{getParam("ADMIN_MAIN")}}
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/cars']">
-                        <span class='glyphicon glyphicon-th-list'></span> მანქანები
+                        <span class='glyphicon glyphicon-th-list'></span> {{getParam("ADMIN_CARS")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/file-manager']">
-                        <span class='glyphicon glyphicon-camera'></span> ფაილ მენეჯერი
+                        <span class='glyphicon glyphicon-camera'></span> {{getParam("ADMIN_FILE_MANAGER")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/categories']">
-                        <span class='glyphicon glyphicon-menu-hamburger'></span> კატეგორიები
+                        <span class='glyphicon glyphicon-menu-hamburger'></span> {{getParam("ADMIN_CATS")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/pages']">
-                        <span class='glyphicon glyphicon-list-alt'></span> გვერდები
+                        <span class='glyphicon glyphicon-list-alt'></span> {{getParam("ADMIN_PAGES")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/settings']">
-                        <span class='glyphicon glyphicon-wrench'></span> პარამეტრები
+                        <span class='glyphicon glyphicon-wrench'></span> {{getParam("ADMIN_SETTINGS")}}
                     </a>
                 </li>
 

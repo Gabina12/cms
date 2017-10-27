@@ -1,3 +1,35 @@
-<p>
-  settings-edit works!
-</p>
+<ol class="breadcrumb">
+  <li>
+    <a href="/settings">პარამეტრები</a>
+  </li>
+  <li class="active">რედაქტირება</li>
+</ol>
+
+<h1>რედაქტირება</h1>
+
+<div class="row">
+  <div class="col-sm-8">
+
+    <div class="form-container">
+
+      <form [formGroup]="form" (ngSubmit)="edit(form.value)" *ngIf="setting">
+        <div class="row columns">
+
+          <input type="hidden" formControlName="SettingId">
+          <input type="hidden" formControlName="Lang">
+
+          <label for="SettingCode">კოდი: </label>
+          <input type="text" class="form-control" formControlName="SettingCode">
+
+          <label for="SettingValue">დასახელება: </label>
+          <input type="text" class="form-control" formControlName="SettingValue">
+          
+
+        </div>
+        <hr/>
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,6 @@ export class SettingsMainComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'წაშლა', message: 'წაიშალოს ჩანაწერი?' } });
     
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       if(result === true){
          this.api.delete(id).subscribe((res) => {
             this.settings = this.settings.filter(x => x.SettingId !== id);
