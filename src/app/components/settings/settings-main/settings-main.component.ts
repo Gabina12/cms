@@ -12,11 +12,13 @@ import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dia
 export class SettingsMainComponent implements OnInit {
 
   settings: Setting[];
+  settingsFull: Setting[];
   constructor(private api: SettingsService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.api.get().subscribe((result) => {
       this.settings = result;
+      this.settingsFull = result;
     })
   }
 
@@ -30,6 +32,14 @@ export class SettingsMainComponent implements OnInit {
          });
       }
     });
+  }
+
+  Search(search: string){
+    if(search === ''){
+      this.settings = this.settingsFull;
+      return;
+    }
+    this.settings = this.settings.filter(x=>x.SettingCode.includes(search) || x.SettingValue.includes(search));
   }
 
 }
