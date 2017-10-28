@@ -31,9 +31,11 @@ import { SettingsCreateComponent } from './components/settings/settings-create/s
 import { SettingsEditComponent } from './components/settings/settings-edit/settings-edit.component';
 import { SettingsService } from './services/settings.service';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { AuthGuardGuard } from './auth-guard.guard';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardGuard] },
   { path: 'categories', component: CategoriesMainComponent },
   { path: 'categories/edit/:id', component: CategoriesEditComponent },
   { path: 'categories/create', component: CategoriesCreateComponent },
@@ -44,7 +46,6 @@ const appRoutes: Routes = [
   { path: 'cars', component: CarsMainComponent },
   { path: 'cars/edit/:id', component: CarsEditComponent },
   { path: 'cars/create', component: CarsCreateComponent },
-
   { path: 'settings', component: SettingsMainComponent },
   { path: 'settings/edit/:id', component: SettingsEditComponent },
   { path: 'settings/create', component: SettingsCreateComponent },
@@ -102,7 +103,9 @@ const appRoutes: Routes = [
     CategoryService, 
     PagesService,
     CarsService,
-    SettingsService
+    SettingsService,
+    AuthGuardGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
