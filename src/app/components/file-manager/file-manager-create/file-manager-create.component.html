@@ -1,0 +1,46 @@
+<ol class="breadcrumb">
+  <li>
+    <a href="/file-manager">ფაილების მართვა</a>
+  </li>
+  <li class="active">ახალი ფაილის დამატება</li>
+</ol>
+
+<h1>ახალი ფაილის დამატება</h1>
+
+<div class="row">
+  <div class="col-sm-8">
+
+    <div class="form-container">
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div class="form-group">
+          <label for="files">ფაილი</label>
+          <input type="file" id="files" name="files" #fileInput>
+          <button type="button" class="btn btn-sm btn-default" (click)="clearFile()" style="display:none;">clear file</button>
+        </div>
+        <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit
+          <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+<div class="col-sm-12" *ngIf="uploadFile" style="margin-top:50px;">
+  <div class="col-sm-4">
+    <img src="https://api.tbilisitour.ge/{{uploadFile.Url}}" style="width:250px;"/>
+  </div>
+
+  <div class="col-sm-8">
+
+    <div class="col-sm-4">
+      <label>სურათის მისამართი (Url):</label>
+    </div>
+    <div class="col-sm-8">
+       <label>https://api.tbilisitour.ge/{{uploadFile.Url}}</label>
+    </div>
+   
+  </div>
+</div>
+
+</div>

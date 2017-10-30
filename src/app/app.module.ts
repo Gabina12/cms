@@ -33,9 +33,12 @@ import { SettingsService } from './services/settings.service';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { FileManagerService } from './services/file-manager.service';
+import { FileManagerCreateComponent } from './components/file-manager/file-manager-create/file-manager-create.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuardGuard] },
+  { path: 'home', component: HomeComponent/*, canActivate: [AuthGuardGuard] */},
   { path: 'categories', component: CategoriesMainComponent },
   { path: 'categories/edit/:id', component: CategoriesEditComponent },
   { path: 'categories/create', component: CategoriesCreateComponent },
@@ -43,6 +46,7 @@ const appRoutes: Routes = [
   { path: 'pages/edit/:id', component: PagesEditComponent },
   { path: 'pages/create', component: PagesCreateComponent },
   { path: 'file-manager', component: FileManagerComponent },
+  { path: 'file-manager/upload', component: FileManagerCreateComponent},
   { path: 'cars', component: CarsMainComponent },
   { path: 'cars/edit/:id', component: CarsEditComponent },
   { path: 'cars/create', component: CarsCreateComponent },
@@ -72,7 +76,8 @@ const appRoutes: Routes = [
     ConfirmDialogComponent,
     SettingsMainComponent,
     SettingsCreateComponent,
-    SettingsEditComponent
+    SettingsEditComponent,
+    FileManagerCreateComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -105,7 +110,9 @@ const appRoutes: Routes = [
     CarsService,
     SettingsService,
     AuthGuardGuard,
-    AuthService
+    AuthService,
+    UserService,
+    FileManagerService
   ],
   bootstrap: [AppComponent]
 })

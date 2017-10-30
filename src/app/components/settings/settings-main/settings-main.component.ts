@@ -39,7 +39,7 @@ export class SettingsMainComponent implements OnInit {
       this.settings = this.settingsFull;
       return;
     }
-    this.settings = this.settings.filter(x=>x.SettingCode.includes(search) || x.SettingValue.includes(search));
+    this.settings = this.settingsFull.filter(x=>x.SettingCode.includes(search) || x.SettingValue.includes(search));
   }
 
 }

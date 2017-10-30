@@ -1,3 +1,40 @@
-<p>
-  file-manager works!
-</p>
+<h1>
+  ფაილ მენეჯერი
+</h1>
+
+<hr/>
+
+<div *ngIf="!uploadFiles">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+</div>
+
+<a *ngIf="uploadFiles" href="/file-manager/upload" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი ფაილის დამატება</a>
+
+<table class="table  table-striped" *ngIf="uploadFiles">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>მისამართი</th>
+      <th>შექმნის თარიღი</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of uploadFiles">
+      <th scope="row">{{file.Id}}</th>
+      <td>{{file.Url}}</td>
+      <td>{{file.CreateDate}}</td>
+      <td align="right">
+        <button class="btn btn-danger btn-sm" (click)="openDialog(file.Id)"><i class="glyphicon glyphicon-remove"></i> წაშლა</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
