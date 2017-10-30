@@ -27,7 +27,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let file of uploadFiles">
-      <th scope="row">{{file.Id}}</th>
+      <th scope="row">
+          <img src="https://api.tbilisitour.ge/{{file.Url}}" style="height:40px;"/>
+      </th>
       <td>{{file.Url}}</td>
       <td>{{file.CreateDate}}</td>
       <td align="right">
