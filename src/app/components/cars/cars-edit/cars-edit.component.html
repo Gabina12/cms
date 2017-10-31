@@ -28,13 +28,14 @@
           
 
           <label for="ImageUrl">მთავარი სურათი: </label>
-          <select formControlName="ImageUrl" class="form-control" style="min-height:35px;">
+          <select #ImageUrl (change)="onChangeMain(ImageUrl.value)" formControlName="ImageUrl" class="form-control" style="min-height:35px;">
             <option value="null">ამოირჩიეთ</option>
             <option *ngFor="let c of files" [ngValue]="c.Url">
-              <img src="https://api.tbilisitour.ge/{{c.Url}}" class="rowindic"/>
               {{c.Url}}
             </option>
           </select>
+          <img *ngIf="mainImg" src="{{getParam('API_URL')}}/{{mainImg}}" style="height:80px;"/>
+
           <div class="col-sm-12">
              
           

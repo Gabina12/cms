@@ -37,6 +37,7 @@ export class CarsEditComponent implements OnInit {
   dropDowns: DropDown[];
   files: UploadFile[];
   optionsModel: string[];
+  mainImg: string;
 
   constructor(private api: CarsService,
     private fapi: FileManagerService,
@@ -55,6 +56,7 @@ export class CarsEditComponent implements OnInit {
     this.api.getCarById(this.id).subscribe((res) => {
       this.car = res;
       this.optionsModel = this.car.ExtraImages.split(';');
+      this.mainImg = this.car.ImageUrl;
       this.form = new FormGroup({
         CarsId: new FormControl(this.car.CarsId, Validators.required),
         Title: new FormControl(this.car.Title, Validators.required),
@@ -95,6 +97,12 @@ export class CarsEditComponent implements OnInit {
   onChange(event) {
    
   }
+
+  onChangeMain(event) {
+    console.log(event);
+    
+    this.mainImg = event;
+   }
 
   getParam(code: string){
     return localStorage.getItem(code);
