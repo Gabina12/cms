@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatDialogModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatDialogModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatDatepickerModule, MAT_DATE_LOCALE, MatNativeDateModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MultiselectDropdownModule } from 'ng2-multiselect';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 
@@ -102,7 +103,11 @@ const appRoutes: Routes = [
     MatButtonModule, 
     MatMenuModule, 
     MatToolbarModule, 
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MultiselectDropdownModule
   ],
   providers: [
     CategoryService, 
@@ -112,7 +117,8 @@ const appRoutes: Routes = [
     AuthGuardGuard,
     AuthService,
     UserService,
-    FileManagerService
+    FileManagerService,
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
   ],
   bootstrap: [AppComponent]
 })

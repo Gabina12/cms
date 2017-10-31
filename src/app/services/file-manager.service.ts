@@ -11,7 +11,7 @@ export class FileManagerService {
   }
 
   delete(fileName: string){
-    return this.http.delete(`/api/FileUpload?fileName=${fileName}`).map(res => res.json());
+    return this.http.delete(`/api/FileUpload/delete?fileName=${fileName}`).map(res => res.json());
   }
 
   post(files: FormData){

@@ -32,5 +32,9 @@ export class FileManagerComponent implements OnInit {
       }
     });
   }
+  
+  getParam(code: string){
+    return localStorage.getItem(code);
+  }
 
 }

@@ -28,12 +28,12 @@
   <tbody>
     <tr *ngFor="let file of uploadFiles">
       <th scope="row">
-          <img src="https://api.tbilisitour.ge/{{file.Url}}" style="height:40px;"/>
+          <img src="{{getParam('API_URL')}}/{{file.Url}}" style="height:40px;"/>
       </th>
       <td>{{file.Url}}</td>
       <td>{{file.CreateDate}}</td>
       <td align="right">
-        <button class="btn btn-danger btn-sm" (click)="openDialog(file.Id)"><i class="glyphicon glyphicon-remove"></i> წაშლა</button>
+        <button class="btn btn-danger btn-sm" (click)="openDialog(file.Url)"><i class="glyphicon glyphicon-remove"></i> წაშლა</button>
       </td>
     </tr>
   </tbody>

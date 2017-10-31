@@ -1,3 +1,151 @@
-<p>
-  cars-edit works!
-</p>
+<ol class="breadcrumb">
+  <li>
+    <a href="/cars">მანქანები</a>
+  </li>
+  <li class="active">რედაქტირება</li>
+</ol>
+
+<h1>რედაქტირება</h1>
+
+<div class="row">
+  <div class="col-sm-8">
+
+    <div class="form-container">
+
+      <form [formGroup]="form" (ngSubmit)="edit(form.value)" *ngIf="car && dropDowns">
+        <div class="row columns">
+
+
+          <input type="hidden" formControlName="CarsId">
+          <input type="hidden" formControlName="Lang">
+
+          <label for="Title">დასახელება: </label>
+          <input type="text" class="form-control" formControlName="Title">
+
+          <label for="Date">თარიღი: </label>
+          <input type="text" class="form-control" formControlName="Date">
+
+          
+
+          <label for="ImageUrl">მთავარი სურათი: </label>
+          <select formControlName="ImageUrl" class="form-control" style="min-height:35px;">
+            <option value="null">ამოირჩიეთ</option>
+            <option *ngFor="let c of files" [ngValue]="c.Url">
+              <img src="https://api.tbilisitour.ge/{{c.Url}}" class="rowindic"/>
+              {{c.Url}}
+            </option>
+          </select>
+          <div class="col-sm-12">
+             
+          
+          <hr/>
+          <label for="ExtraImages">სხვა სურათ(ებ)ი: </label>
+          <ng2-multiselect [options]="files" [texts]="myTexts" [settings]="mySettings" style="width:100%;"
+          [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)" 
+          formControlName="ExtraImages"></ng2-multiselect>
+          <hr/>
+          <img *ngFor="let c of optionsModel" src="{{getParam('API_URL')}}/{{c}}" style="height:80px;"/>
+          <hr/>   
+        </div>
+
+         
+
+
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label for="Price">ფასი: </label>
+              <input type="text" class="form-control" formControlName="Price">
+            </div>
+            <div class="col-sm-6">
+              <label for="Ccy">ვალუტა: </label>
+              <select formControlName="Ccy" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(6)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label for="Category">კატეგორია: </label>
+              <select formControlName="Category" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(1)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label for="Transmission">ტრანსმისია: </label>
+              <select formControlName="Transmission" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(2)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label for="FuelType">საწვავის ტიპი: </label>
+              <select formControlName="FuelType" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(3)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label for="Color">ფერი: </label>
+              <select formControlName="Color" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(4)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label for="NumberOfDoors">კარებების რ-ბა: </label>
+              <input type="text" class="form-control" formControlName="NumberOfDoors">
+            </div>
+            <div class="col-sm-6">
+              <label for="NumberOfSeats">სავარძლების რ-ბა: </label>
+              <input type="text" class="form-control" formControlName="NumberOfSeats">
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-4">
+              <label for="Engine">ძრავი: </label>
+              <input type="text" class="form-control" formControlName="Engine">
+            </div>
+            <div class="col-sm-4">
+              <label for="DriveWheels">წამყვანი თვლები: </label>
+              <select formControlName="DriveWheels" class="form-control" style="min-height:35px;">
+                <option value="null">ამოირჩიეთ</option>
+                <option *ngFor="let c of getDropDown(5)" [ngValue]="c.Id">{{c.Descrip}}</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label for="Mileage">გარბენი: </label>
+              <input type="text" class="form-control" formControlName="Mileage">
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <label for="ShortDescrip">მოკლე აღწერა: </label>
+            <div [froalaEditor] formControlName="ShortDescrip">{{car.ShortDescrip}}</div>
+          </div>
+
+          <div class="col-sm-12">
+            <label for="Descrip">აღწერა: </label>
+            <div [froalaEditor] formControlName="Descrip">{{car.Descrip}}</div>
+          </div>
+
+
+
+        </div>
+        <hr/>
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+      </form>
+    </div>
+  </div>
+</div>

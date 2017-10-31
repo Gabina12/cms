@@ -8,7 +8,8 @@ export class CarsService {
   constructor(public http: Http) { }
 
   getCars() {
-    return this.http.get('/api/Cars').map(res => res.json());
+    let lang = localStorage.getItem('lang');
+    return this.http.get(`/api/Cars?lang=${lang}`).map(res => res.json());
   }
 
   getCarById(id: number) {
@@ -25,5 +26,15 @@ export class CarsService {
 
   deleteCar(id: number){
     return this.http.delete('/api/Cars/' + id).map(res => res.json());
+  }
+
+  getDropDown(type: number){
+    let lang = localStorage.getItem('lang');
+    return this.http.get(`/api/DropDowns?type=${type}&lang=${lang}`).map(res => res.json());
+  }
+
+  getDropDowns(){
+    let lang = localStorage.getItem('lang');
+    return this.http.get(`/api/DropDowns/all?lang=${lang}`).map(res => res.json());
   }
 }
