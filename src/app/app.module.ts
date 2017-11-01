@@ -4,8 +4,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDialogModule, MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatDatepickerModule, MAT_DATE_LOCALE, MatNativeDateModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MultiselectDropdownModule } from 'ng2-multiselect';
-
+import { DatePipe } from '@angular/common'
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -107,7 +108,8 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MultiselectDropdownModule
+    MultiselectDropdownModule,
+    DateValueAccessorModule
   ],
   providers: [
     CategoryService, 
@@ -118,7 +120,8 @@ const appRoutes: Routes = [
     AuthService,
     UserService,
     FileManagerService,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: MAT_DATE_LOCALE, useValue: 'ka-GE'},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
