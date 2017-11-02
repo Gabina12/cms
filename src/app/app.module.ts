@@ -38,6 +38,10 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { FileManagerService } from './services/file-manager.service';
 import { FileManagerCreateComponent } from './components/file-manager/file-manager-create/file-manager-create.component';
+import { TeamMainComponent } from './components/team/team-main/team-main.component';
+import { TeamCreateComponent } from './components/team/team-create/team-create.component';
+import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
+import { TeamService } from './services/team.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent/*, canActivate: [AuthGuardGuard] */},
@@ -55,7 +59,9 @@ const appRoutes: Routes = [
   { path: 'settings', component: SettingsMainComponent },
   { path: 'settings/edit/:id', component: SettingsEditComponent },
   { path: 'settings/create', component: SettingsCreateComponent },
-
+  { path: 'team', component: TeamMainComponent },
+  { path: 'team/edit/:id', component: TeamEditComponent },
+  { path: 'team/create', component: TeamCreateComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -79,7 +85,10 @@ const appRoutes: Routes = [
     SettingsMainComponent,
     SettingsCreateComponent,
     SettingsEditComponent,
-    FileManagerCreateComponent
+    FileManagerCreateComponent,
+    TeamMainComponent,
+    TeamCreateComponent,
+    TeamEditComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -121,7 +130,8 @@ const appRoutes: Routes = [
     UserService,
     FileManagerService,
     {provide: MAT_DATE_LOCALE, useValue: 'ka-GE'},
-    DatePipe
+    DatePipe,
+    TeamService
   ],
   bootstrap: [AppComponent]
 })

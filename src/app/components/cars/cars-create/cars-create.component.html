@@ -26,7 +26,7 @@
           <label for="ImageUrl">მთავარი სურათი: </label>
           <select #ImageUrl (change)="onChangeMain(ImageUrl.value)" formControlName="ImageUrl" class="form-control" style="min-height:35px;">
             <option value="null">ამოირჩიეთ</option>
-            <option *ngFor="let c of files" [ngValue]="c.Url">
+            <option *ngFor="let c of files" value="{{c.Url}}">
               {{c.Url}}
             </option>
           </select>
@@ -141,7 +141,7 @@
         </div>
         <hr/>
         <input type="submit" value="Submit" class="btn btn-primary">
-
+        <hr/>
       </form>
     </div>
   </div>

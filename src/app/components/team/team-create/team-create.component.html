@@ -1,0 +1,68 @@
+<ol class="breadcrumb">
+  <li>
+    <a href="/team">პერსონალი</a>
+  </li>
+  <li class="active">დამატება</li>
+</ol>
+
+<h1>დამატება</h1>
+
+<div class="row">
+  <div class="col-sm-8">
+
+    <div class="form-container">
+
+      <form [formGroup]="form" (ngSubmit)="create(form.value)" *ngIf="files">
+        <div class="row columns">
+
+
+          <input type="hidden" formControlName="Id">
+          <input type="hidden" formControlName="Lang">
+
+          <label for="ImageUrl">სურათი: </label>
+          <select #ImageUrl (change)="onChangeMain(ImageUrl.value)" formControlName="ImageUrl" class="form-control" style="min-height:35px;">
+            <option value="null">ამოირჩიეთ</option>
+            <option *ngFor="let c of files" value="{{c.Url}}">
+              {{c.Url}}
+            </option>
+          </select>
+          <img *ngIf="mainImg" src="{{getParam('API_URL')}}/{{mainImg}}" style="height:80px;"/>
+
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label for="FirstName">სახელი: </label>
+              <input type="text" class="form-control" formControlName="FirstName">
+            </div>
+            <div class="col-sm-6">
+              <label for="LastName">გვარი: </label>
+              <input type="text" class="form-control" formControlName="LastName">
+            </div>
+          </div>
+
+          <label for="Position">პოზიცია: </label>
+          <input type="text" class="form-control" formControlName="Position">
+
+          <label for="FacebookUrl">Facebook: </label>
+          <input type="text" class="form-control" formControlName="FacebookUrl">
+
+          <label for="InstagramUrl">Instagram: </label>
+          <input type="text" class="form-control" formControlName="InstagramUrl">
+
+          <label for="Skype">Skype: </label>
+          <input type="text" class="form-control" formControlName="Skype">
+
+
+          <div class="col-sm-12">
+            <label for="Biography">ბიოგრაფია: </label>
+            <div [froalaEditor] formControlName="Biography"></div>
+          </div>
+
+        </div>
+        <hr/>
+        <input type="submit" value="Submit" class="btn btn-primary">
+        <hr/>
+      </form>
+    </div>
+  </div>
+</div>

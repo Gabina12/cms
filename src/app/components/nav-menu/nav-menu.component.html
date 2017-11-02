@@ -44,6 +44,12 @@
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/team']">
+                        <span class='glyphicon glyphicon-list-alt'></span> {{getParam("ADMIN_PLAYERS")}}
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/settings']">
                         <span class='glyphicon glyphicon-wrench'></span> {{getParam("ADMIN_SETTINGS")}}
                     </a>
