@@ -65,6 +65,9 @@ const appRoutes: Routes = [
   { path: 'team', component: TeamMainComponent },
   { path: 'team/edit/:id', component: TeamEditComponent },
   { path: 'team/create', component: TeamCreateComponent },
+  { path: 'users', component: UsersMainComponent },
+  { path: 'users/edit/:id', component: UsersEditComponent },
+  { path: 'users/create', component: UsersCreateComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 

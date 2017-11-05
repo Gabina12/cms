@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:400,700');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+li[_ngcontent-c1]   .fa[_ngcontent-c1] {
+  margin-right: 10px;
+}
+
 body {
     background:#e8e8e8;
     font-family: 'Muli' !important;

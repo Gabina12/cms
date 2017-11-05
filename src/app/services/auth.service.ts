@@ -7,6 +7,10 @@ export class AuthService {
 
   constructor(public http: Http) { }
 
+  get(){
+    return this.http.get('/api/Users').map(res => res.json());
+  }
+
   auth(userName: string, password: string){
     return this.http.get(`/api/Users?userName=${userName}&password=${password}`).map(res => res.json());
   }

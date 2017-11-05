@@ -16,42 +16,48 @@
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span>{{getParam("ADMIN_MAIN")}}
+                        <span class='fa fa-home'></span>{{getParam("ADMIN_MAIN")}}
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/cars']">
-                        <span class='glyphicon glyphicon-th-list'></span> {{getParam("ADMIN_CARS")}}
+                        <span class='fa fa-car'></span> {{getParam("ADMIN_CARS")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/file-manager']">
-                        <span class='glyphicon glyphicon-camera'></span> {{getParam("ADMIN_FILE_MANAGER")}}
+                        <span class='fa fa-paperclip'></span> {{getParam("ADMIN_FILE_MANAGER")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/categories']">
-                        <span class='glyphicon glyphicon-menu-hamburger'></span> {{getParam("ADMIN_CATS")}}
+                        <span class='fa fa-tasks'></span> {{getParam("ADMIN_CATS")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/pages']">
-                        <span class='glyphicon glyphicon-list-alt'></span> {{getParam("ADMIN_PAGES")}}
+                        <span class='fa fa-columns'></span> {{getParam("ADMIN_PAGES")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/team']">
-                        <span class='glyphicon glyphicon-list-alt'></span> {{getParam("ADMIN_PLAYERS")}}
+                        <span class='fa fa-users'></span> {{getParam("ADMIN_PLAYERS")}}
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/users']">
+                        <span class='fa fa-user-circle'></span> {{getParam("ADMIN_USERS")}}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/settings']">
-                        <span class='glyphicon glyphicon-wrench'></span> {{getParam("ADMIN_SETTINGS")}}
+                        <span class='fa fa-cogs'></span> {{getParam("ADMIN_SETTINGS")}}
                     </a>
                 </li>
 
