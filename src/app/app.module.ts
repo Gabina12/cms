@@ -42,6 +42,9 @@ import { TeamMainComponent } from './components/team/team-main/team-main.compone
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
 import { TeamEditComponent } from './components/team/team-edit/team-edit.component';
 import { TeamService } from './services/team.service';
+import { UsersMainComponent } from './components/users/users-main/users-main.component';
+import { UsersCreateComponent } from './components/users/users-create/users-create.component';
+import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent/*, canActivate: [AuthGuardGuard] */},
@@ -88,7 +91,10 @@ const appRoutes: Routes = [
     FileManagerCreateComponent,
     TeamMainComponent,
     TeamCreateComponent,
-    TeamEditComponent
+    TeamEditComponent,
+    UsersMainComponent,
+    UsersCreateComponent,
+    UsersEditComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
