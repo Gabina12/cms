@@ -56,6 +56,12 @@
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/orders']">
+                        <span class='fa fa-shopping-cart'></span> {{getParam("ORDER DETAILS")}}
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/settings']">
                         <span class='fa fa-cogs'></span> {{getParam("ADMIN_SETTINGS")}}
                     </a>

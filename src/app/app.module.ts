@@ -45,6 +45,8 @@ import { TeamService } from './services/team.service';
 import { UsersMainComponent } from './components/users/users-main/users-main.component';
 import { UsersCreateComponent } from './components/users/users-create/users-create.component';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrdersService } from './services/orders.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent/*, canActivate: [AuthGuardGuard] */},
@@ -68,6 +70,7 @@ const appRoutes: Routes = [
   { path: 'users', component: UsersMainComponent },
   { path: 'users/edit/:id', component: UsersEditComponent },
   { path: 'users/create', component: UsersCreateComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -97,7 +100,8 @@ const appRoutes: Routes = [
     TeamEditComponent,
     UsersMainComponent,
     UsersCreateComponent,
-    UsersEditComponent
+    UsersEditComponent,
+    OrdersComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -140,7 +144,8 @@ const appRoutes: Routes = [
     FileManagerService,
     {provide: MAT_DATE_LOCALE, useValue: 'ka-GE'},
     DatePipe,
-    TeamService
+    TeamService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })
