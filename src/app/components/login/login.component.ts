@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', this.token.access_token);
           this.iuser.SetLogin();
           this.iuser.SetToken(this.token);
-          ss.
-          this.nav.navigateByUrl('home');
+          
+          this.nav.navigate(['/home']);
+          location.reload();
         }else{
           alert('მომხმარებელი ან პაროლი არასწორია!');
         }
