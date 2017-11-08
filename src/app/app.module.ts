@@ -47,30 +47,32 @@ import { UsersCreateComponent } from './components/users/users-create/users-crea
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrdersService } from './services/orders.service';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent/*, canActivate: [AuthGuardGuard] */},
-  { path: 'categories', component: CategoriesMainComponent },
-  { path: 'categories/edit/:id', component: CategoriesEditComponent },
-  { path: 'categories/create', component: CategoriesCreateComponent },
-  { path: 'pages', component: PagesMainComponent },
-  { path: 'pages/edit/:id', component: PagesEditComponent },
-  { path: 'pages/create', component: PagesCreateComponent },
-  { path: 'file-manager', component: FileManagerComponent },
-  { path: 'file-manager/upload', component: FileManagerCreateComponent},
-  { path: 'cars', component: CarsMainComponent },
-  { path: 'cars/edit/:id', component: CarsEditComponent },
-  { path: 'cars/create', component: CarsCreateComponent },
-  { path: 'settings', component: SettingsMainComponent },
-  { path: 'settings/edit/:id', component: SettingsEditComponent },
-  { path: 'settings/create', component: SettingsCreateComponent },
-  { path: 'team', component: TeamMainComponent },
-  { path: 'team/edit/:id', component: TeamEditComponent },
-  { path: 'team/create', component: TeamCreateComponent },
-  { path: 'users', component: UsersMainComponent },
-  { path: 'users/edit/:id', component: UsersEditComponent },
-  { path: 'users/create', component: UsersCreateComponent },
-  { path: 'orders', component: OrdersComponent },
+  { path: 'home', component: HomeComponent ,canActivate: [AuthGuardGuard] },
+  { path: 'categories', component: CategoriesMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'categories/edit/:id', component: CategoriesEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'categories/create', component: CategoriesCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'pages', component: PagesMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'pages/edit/:id', component: PagesEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'pages/create', component: PagesCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'file-manager', component: FileManagerComponent, canActivate: [AuthGuardGuard] },
+  { path: 'file-manager/upload', component: FileManagerCreateComponent, canActivate: [AuthGuardGuard]},
+  { path: 'cars', component: CarsMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'cars/edit/:id', component: CarsEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'cars/create', component: CarsCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'settings', component: SettingsMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'settings/edit/:id', component: SettingsEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'settings/create', component: SettingsCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'team', component: TeamMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'team/edit/:id', component: TeamEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'team/create', component: TeamCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'users', component: UsersMainComponent, canActivate: [AuthGuardGuard] },
+  { path: 'users/edit/:id', component: UsersEditComponent, canActivate: [AuthGuardGuard] },
+  { path: 'users/create', component: UsersCreateComponent, canActivate: [AuthGuardGuard] },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuardGuard] },
+  { path: 'login', component: LoginComponent},
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -101,7 +103,8 @@ const appRoutes: Routes = [
     UsersMainComponent,
     UsersCreateComponent,
     UsersEditComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoginComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

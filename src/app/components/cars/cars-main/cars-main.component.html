@@ -38,7 +38,7 @@
       </div>
 </div>
 
-<a *ngIf="cars" href="/cars/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი ავტომობილის დამატება</a>
+<a *ngIf="cars" [routerLink]="['/cars/create']" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი ავტომობილის დამატება</a>
 
 
 <table class="table  table-striped" *ngIf="cars && fuleTypes">

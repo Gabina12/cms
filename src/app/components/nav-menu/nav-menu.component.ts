@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { SettingsService } from '../../services/settings.service';
 import { Setting } from '../../models/Settings';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,7 +14,8 @@ export class NavMenuComponent implements OnInit {
   settings: Setting[];
   language: string;
   constructor(private localStorageService: LocalStorageService, 
-    private api: SettingsService) {
+    private api: SettingsService,
+    private nav: Router) {
     
    }
 
@@ -50,6 +52,11 @@ export class NavMenuComponent implements OnInit {
 
   getParam(code: string){
     return localStorage.getItem(code);
+  }
+
+  LogOut(){
+    localStorage.removeItem('token');
+    this.nav.navigateByUrl('login');
   }
 
 }

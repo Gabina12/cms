@@ -14,7 +14,7 @@
       </div>
 </div>
 
-<a *ngIf="uploadFiles" href="/file-manager/upload" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი ფაილის დამატება</a>
+<a *ngIf="uploadFiles" [routerLink]="['/file-manager/upload']" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი ფაილის დამატება</a>
 
 <table class="table  table-striped" *ngIf="uploadFiles">
   <thead class="thead-inverse">

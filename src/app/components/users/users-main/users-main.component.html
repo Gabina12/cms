@@ -38,7 +38,7 @@
       </div>
 </div>
 
-<a *ngIf="users" href="/users/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი მომხმარებლის დამატება</a>
+<a *ngIf="users" [routerLink]="['/users/create']" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი მომხმარებლის დამატება</a>
 
 
 <table class="table  table-striped" *ngIf="users">

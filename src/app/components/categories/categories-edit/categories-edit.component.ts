@@ -35,7 +35,8 @@ export class CategoriesEditComponent implements OnInit {
           Descrip: new FormControl(this.category.Descrip, Validators.required),
           ParentId: new FormControl(this.category.ParentId, Validators.required),
           Url: new FormControl(this.category.Url, Validators.required),
-          SortId: new FormControl(this.category.SortId, Validators.required)
+          SortId: new FormControl(this.category.SortId, Validators.required),
+          Lang: new FormControl(this.category.Lang, Validators.required)
         });
 
     });

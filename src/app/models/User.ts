@@ -8,3 +8,8 @@ export class User {
     FirstName: string;
     LastName: string;
 }
+
+export class AuthUser{
+    PasswordHash: string;
+    UserName: string;
+}

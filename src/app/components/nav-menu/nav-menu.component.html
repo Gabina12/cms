@@ -67,6 +67,12 @@
                     </a>
                 </li>
 
+                <li [routerLinkActive]="['link-active']">
+                        <a href="#!" (click)="LogOut()">
+                            <span class='fa fa-cogs'></span> {{getParam("ADMIN_SETTINGS")}}
+                        </a>
+                    </li>
+
 
             </ul>
         </div>

@@ -14,7 +14,7 @@
       </div>
 </div>
 
-<a *ngIf="pages" href="/pages/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი გვერდის დამატება</a>
+<a *ngIf="pages" [routerLink]="['/pages/create']" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი გვერდის დამატება</a>
 
 <table class="table  table-striped" *ngIf="pages">
   <thead class="thead-inverse">

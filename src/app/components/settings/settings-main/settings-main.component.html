@@ -38,7 +38,7 @@
         </div>
   </div>
   
-  <a *ngIf="settings" href="/settings/create" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი პარამეტრის დამატება</a>
+  <a *ngIf="settings" [routerLink]="['/settings/create']" class="btn btn-secondary btn-sm"><i class="glyphicon glyphicon-plus"></i> ახალი პარამეტრის დამატება</a>
   
   
   <table class="table  table-striped" *ngIf="settings">
