@@ -49,11 +49,11 @@
                     </a>
                 </li>
 
-                <li [routerLinkActive]="['link-active']">
+                <!--<li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/users']">
                         <span class='fa fa-user-circle'></span> {{getParam("ADMIN_USERS")}}
                     </a>
-                </li>
+                </li>-->
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/orders']">
@@ -67,18 +67,14 @@
                     </a>
                 </li>
 
-                <li [routerLinkActive]="['link-active']">
-                        <a href="#!" (click)="LogOut()">
-                            <span class='fa fa-sign-out'></span> {{getParam("ADMIN_LOGOUT")}}
-                        </a>
-                    </li>
-
-
             </ul>
         </div>
 
         <div class='clearfix'></div>
         <div class='navbar-footer'>
+                <a class="btn btn-float" href="#!" (click)="LogOut()">
+                        <span class='fa fa-sign-out'></span> {{getParam("ADMIN_LOGOUT")}}
+                    </a>
             <div class="sep">
 
             
