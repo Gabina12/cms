@@ -1,6 +1,6 @@
 {
     "/api/": {
-      "target": "https://api.tbilisitour.ge",
+      "target": "https://api.autotourgeorgia.com",
       "secure": true,
       "changeOrigin": true
     }

@@ -4,6 +4,7 @@ import { Cars } from '../../../models/Cars';
 import { DropDown } from '../../../models/DropDown';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dialog.component';
+import { log } from 'util';
 
 @Component({
   selector: 'app-cars-main',
@@ -26,7 +27,9 @@ export class CarsMainComponent implements OnInit {
   }
 
   getFuleType(id: number){
-    return this.fuleTypes.filter(x => x.Id == id)[0].Descrip;
+    let item = this.fuleTypes.filter(x => x.Id == id)[0];
+    if(item == null) return "";
+    return item.Descrip;
   }
 
   Search(search: string){
