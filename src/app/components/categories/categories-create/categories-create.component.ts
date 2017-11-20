@@ -21,13 +21,15 @@ export class CategoriesCreateComponent implements OnInit {
   ngOnInit() {
     this.api.getCategories().subscribe((res) => {
       this.categories = res;
-    })
+    });
+    let lang = this.getParam('lang');
     this.form = new FormGroup({
       Id: new FormControl(0, Validators.required),
       Descrip: new FormControl('', Validators.required),
       ParentId: new FormControl(null, Validators.required),
       Url: new FormControl('', Validators.required),
-      SortId: new FormControl(0, Validators.required)
+      SortId: new FormControl(0, Validators.required),
+      Lang: new FormControl(lang, Validators.required)
     });
   }
 
@@ -37,6 +39,10 @@ export class CategoriesCreateComponent implements OnInit {
       this.category = result;
         this.nav.navigateByUrl('categories');
     });
+  }
+
+  getParam(code: string){
+    return localStorage.getItem(code);
   }
 
 }
