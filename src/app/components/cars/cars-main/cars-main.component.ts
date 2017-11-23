@@ -13,13 +13,16 @@ import { log } from 'util';
 })
 export class CarsMainComponent implements OnInit {
 
+  tags: string;
   cars: Cars[];
+  carsFull: Cars[];
   fuleTypes: DropDown[];
   constructor(private api: CarsService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.api.getCars().subscribe((result) => {
       this.cars = result;
+      this.carsFull = this.cars;
     });
     this.api.getDropDown(3).subscribe((result) => {
       this.fuleTypes = result;
@@ -33,7 +36,13 @@ export class CarsMainComponent implements OnInit {
   }
 
   Search(search: string){
+    this.tags = '<span class="badge badge-danger">'+search+'</span>';
+    this.cars = this.carsFull.filter(x=>x.Title.includes(search)
+                || x.Descrip.includes(search) || x.ShortDescrip.includes(search));
+  }
 
+  getParam(code: string){
+    return localStorage.getItem(code);
   }
 
   openDialog(Id: number) {
