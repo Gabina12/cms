@@ -46,30 +46,34 @@
   <thead class="thead-inverse">
     <tr>
       <th></th>
-      <th>ტრანზაქციის #</th>
+      <th>ტრან. #</th>
       <th>დასახელება</th>
       <th>პირ. #</th>
       <th>დაჯ. თარიღი</th>
       <th>დაბრ. თარიღი</th>
       <th>თანხა</th>
+      <th>სტატუსი</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let o of orders">
+    <tr *ngFor="let o of orders" [class.inactive] = "o.StatusCode <= 0">
         <td align="right">
             <a class="btn btn-primary btn-sm" target="_blank" href="http://tbilisitour.ge/Cars/Details/{{o.CarId}}"><i class="fa fa-car"></i> </a>
         </td>
-      <th scope="row">{{o.TransactionId}}</th>
+      <th scope="row">
+        <button class="btn btn-primary btn-sm" (click)="openDialogTrans(o.TransactionId)"><i class="fa fa-key"></i> TR</button>
+      </th>
       <td>{{o.FirstName}} {{o.LastName}}</td>
       <td>{{o.PersonalId}}</td>
-      <td>{{o.OrderDate}}</td>
-      <td>{{o.OrderEndDate}}</td>
+      <td>{{o.OrderDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{o.OrderEndDate | date: 'dd/MM/yyyy'}}</td>
       <td>{{o.Amount}}</td>
+      <td>{{o.StatusDescrip}}</td>
       <td align="right">
-          <button class="btn btn-danger btn-sm" (click)="openDialogDelete(o.Id)"><i class="fa fa-retweet"></i> წაშლა</button>
-        <button class="btn btn-warning btn-sm" (click)="openDialogRefund(o.TransactionId,o.Amount)"><i class="fa fa-retweet"></i> რეფანდი</button>
-        <button class="btn btn-warning btn-sm" (click)="openDialogReversal(o.TransactionId,o.Amount)"><i class="fa fa-retweet"></i> რევერსალი</button>
+        <button *ngIf="o.StatusCode <= 0" class="btn btn-danger btn-sm" (click)="openDialogDelete(o.Id)"><i class="fa fa-retweet"></i> წაშლა</button>
+        <button *ngIf="o.StatusCode > 0" class="btn btn-warning btn-sm" (click)="openDialogRefund(o.TransactionId,o.Amount)"><i class="fa fa-retweet"></i> რეფანდი</button>
+        <button *ngIf="o.StatusCode > 0" class="btn btn-warning btn-sm" (click)="openDialogReversal(o.TransactionId,o.Amount)"><i class="fa fa-retweet"></i> რევერსალი</button>
       </td>
     </tr>
   </tbody>

@@ -99,6 +99,13 @@ export class OrdersComponent implements OnInit {
     });
   }
 
+  openDialogTrans(TransactionId: string){
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'ტრანზაქციის ნომერი', message: TransactionId } });
+    dialogRef.afterClosed().subscribe(result => {
+      
+    });
+  }
+
   Search(search: string){
     if(search === ''){
       this.orders = this.ordersFull;

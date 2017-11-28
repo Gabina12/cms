@@ -21,7 +21,9 @@ export class CarsMainComponent implements OnInit {
 
   ngOnInit() {
     this.api.getCars().subscribe((result) => {
+      let lang = this.getParam("lang");
       this.cars = result;
+      this.cars = this.cars.filter(x=>x.Lang == lang);
       this.carsFull = this.cars;
     });
     this.api.getDropDown(3).subscribe((result) => {
