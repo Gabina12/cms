@@ -15,6 +15,10 @@ export class OrdersService {
     return this.http.get(`/api/Orders`, options).map(res => res.json());
   }
 
+  getOrderById(id: number){
+    return this.http.get('/api/Orders/' + id, options).map(res => res.json());
+  }
+
   deleteOrder(id: number){
     return this.http.delete('/api/Orders/' + id, options).map(res => res.json());
   }

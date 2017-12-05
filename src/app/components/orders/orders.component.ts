@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { RefundResultResponse } from '../../models/RefundResultResponse';
 import { ReversalResultResponse } from '../../models/ReversalResultResponse';
 import { EndBusinessDayResponse } from '../../models/EndBusinessDayResponse';
+import { DetailsComponent } from './details/details.component';
 
 @Component({
   selector: 'app-orders',
@@ -103,6 +104,12 @@ export class OrdersComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { title: 'ტრანზაქციის ნომერი', message: TransactionId } });
     dialogRef.afterClosed().subscribe(result => {
       
+    });
+  }
+
+  openDialogDetails(orderId: number, carId: number){
+    const dialogRef = this.dialog.open(DetailsComponent, { data: { orderId: orderId, carId: carId } });
+    dialogRef.afterClosed().subscribe(result => {
     });
   }
 

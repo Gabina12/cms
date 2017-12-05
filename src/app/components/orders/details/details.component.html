@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>დეტალები</h2>
+<mat-dialog-content *ngIf="order">
+  <table>
+    <tr>
+      <td class="main_title">ტრანზაქციის #</td>
+      <td class="params">{{order.TransactionId}}</td>
+    </tr>
+    <tr>
+        <td class="main_title">შექმნის თარიღი</td>
+        <td class="params">{{order.CreateDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">სახელი, გვარი</td>
+          <td class="params">{{order.FirstName}} {{order.LastName}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">ელ-ფოსტა</td>
+          <td class="params">{{order.Email}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">მობილური</td>
+          <td class="params">{{order.Phone}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">პირადი #</td>
+          <td class="params">{{order.PersonalId}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">ადგილმდებარეობა</td>
+          <td class="params">{{order.TakeLocation}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">დაჯავშნის თარიღი</td>
+          <td class="params">{{order.OrderDate | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">დაბრუნების თარიღი</td>
+          <td class="params">{{order.OrderEndDate | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">თანხა</td>
+          <td class="params">{{order.Amount}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">სტატუსი</td>
+          <td class="params">{{order.StatusDescrip}}</td>
+      </tr>
+      <tr>
+          <td class="main_title">მანქანა</td>
+          <td class="params"><a target="_blank" href="https://autotourgeorgia.com/Cars/Details/{{order.CarId}}">ნახვა</a></td>
+      </tr>
+  </table>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">გაუქმება</button>
+</mat-dialog-actions>

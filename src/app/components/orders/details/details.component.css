@@ -1,0 +1,14 @@
+.main_title{
+    width:50%;
+    background: #cccccc;
+    padding: 5px;
+    border-bottom: 1px solid #fff;
+}
+
+.params {
+    width:50%;
+    background: #202020;
+    color:#fff;
+    padding: 5px;
+    border-bottom: 1px solid #fff;
+}

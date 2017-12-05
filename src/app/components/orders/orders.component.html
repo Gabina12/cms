@@ -45,8 +45,7 @@
 <table class="table table-sm" *ngIf="orders">
   <thead class="thead-inverse">
     <tr>
-      <th></th>
-      <th>ტრან. #</th>
+      <th>დეტალები</th>
       <th>დასახელება</th>
       <th>პირ. #</th>
       <th>დაჯ. თარიღი</th>
@@ -59,11 +58,8 @@
   <tbody>
     <tr *ngFor="let o of orders" [class.inactive] = "o.StatusCode <= 0">
         <td align="right">
-            <a class="btn btn-primary btn-sm" target="_blank" href="http://tbilisitour.ge/Cars/Details/{{o.CarId}}"><i class="fa fa-car"></i> </a>
+            <button class="btn btn-primary btn-sm" (click)="openDialogDetails(o.Id, o.CarId)"><i class="fa fa-car"></i> დეტალურად</button>
         </td>
-      <th scope="row">
-        <button class="btn btn-primary btn-sm" (click)="openDialogTrans(o.TransactionId)"><i class="fa fa-key"></i> TR</button>
-      </th>
       <td>{{o.FirstName}} {{o.LastName}}</td>
       <td>{{o.PersonalId}}</td>
       <td>{{o.OrderDate | date: 'dd/MM/yyyy'}}</td>

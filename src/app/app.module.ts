@@ -48,6 +48,7 @@ import { UsersEditComponent } from './components/users/users-edit/users-edit.com
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrdersService } from './services/orders.service';
 import { LoginComponent } from './components/login/login.component';
+import { DetailsComponent } from './components/orders/details/details.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent ,canActivate: [AuthGuardGuard] },
@@ -104,10 +105,12 @@ const appRoutes: Routes = [
     UsersCreateComponent,
     UsersEditComponent,
     OrdersComponent,
-    LoginComponent
+    LoginComponent,
+    DetailsComponent
   ],
   entryComponents: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
